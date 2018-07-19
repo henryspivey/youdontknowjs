@@ -6,7 +6,7 @@ a = "hello world";
 typeof a; // string
 
 a= null
-typeof a // object 
+typeof a // object
 // typeof asks for the type of value in a
 
 
@@ -142,18 +142,70 @@ switch(a) {
 }
 
 // Closure
+function makeAdder(x) {
+  // x is an inner variable
+  // inner function add() uses x
+  function add(y) {
+    return y+x;
+  };
+  return add;
+}
 
 
+var plusOne = makeAdder(1);
+var plusTen = makeAdder(10);
+
+console.log(plusOne(3));
+console.log(plusOne(41));
+console.log(plusTen(30));
 
 
+// Modules
+function User() {
+  var username, password;
+  function doLogin(user,pw) {
+    username = user;
+    password = pw;
+    // stuff
+  }
+  var publicApi = {
+    login: doLogin
+  };
+  return publicApi;
+}
+
+var fred = User();
+fred.login('fred', 'testing');
+
+// this keyword
+function foo() {
+  console.log(this.bar);
+}
+
+var bar = "global";
+var obj1 = {
+  bar: "obj1",
+  foo: foo
+};
+var obj2 = {
+  bar: "obj2"
+};
+
+console.log(foo());
+console.log(obj1.foo());
+console.log(foo.call(obj2));
+console.log(new foo());
 
 
+// Prototypes
+// used when referencing a property on an object.  If the reference isn't found,
+// JS will automatically use that object's internal prototype reference to find another object to look
+// for the property
+var foo = {
+  a : 42
+};
 
-
-
-
-
-
-
-
-
+var bar = Object.create(foo);
+bar.b = "hello world";
+console.log(bar.b);
+console.log(bar.a);
