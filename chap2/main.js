@@ -209,3 +209,13 @@ var bar = Object.create(foo);
 bar.b = "hello world";
 console.log(bar.b);
 console.log(bar.a);
+
+
+// Strict Mode
+function foo() {
+  "use strict";
+  // in strict mode
+  function bar() {
+    // in strict mode
+  }
+}

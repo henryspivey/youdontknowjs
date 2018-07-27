@@ -1,0 +1,3 @@
+// What is Scope?
+// Scope is the set of rules that govern how the engine can look up  a variable by its name and find it
+// either in the current scope or in any of the nested scopes
