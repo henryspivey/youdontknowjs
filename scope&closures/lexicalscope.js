@@ -27,3 +27,15 @@ function foo(str) {
   console.log(a)
 }
 foo("var a = 2");
+
+
+
+// IIFE  (in the browser)
+var a = 2;
+(function IIFE(def){
+  def(window);
+})(function def(global) {
+  var a = 3;
+  console.log(a)
+  console.log(global.a) // eventually window = global
+})
