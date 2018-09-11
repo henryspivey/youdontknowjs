@@ -1,4 +1,4 @@
-let hey = (name) => {
+let hey = name => {
   console.log(`hey ${name}`);
 }
-hey("henry");
+hey("herny");
